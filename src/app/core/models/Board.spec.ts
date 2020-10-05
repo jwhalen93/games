@@ -38,4 +38,30 @@ describe('Board', () => {
 
         expect(17).toEqual(index2)
     })
+
+    it('verify adjacent checks', () => {
+        const rightShouldBeNull: number = rectBoard.getIndexToRight(3)
+        const rightIndex: number = rectBoard.getIndexToRight(5)
+
+        expect(rightShouldBeNull).toBeNull()
+        expect(rightIndex).toEqual(6)
+
+        const leftShouldBeNull: number = rectBoard.getIndexToLeft(4)
+        const leftIndex: number = rectBoard.getIndexToLeft(5)
+
+        expect(leftShouldBeNull).toBeNull()
+        expect(leftIndex).toEqual(4)
+
+        const topShouldBeNull: number = rectBoard.getIndexAbove(1)
+        const topIndex: number = rectBoard.getIndexAbove(5)
+
+        expect(topShouldBeNull).toBeNull()
+        expect(topIndex).toEqual(1)
+
+        const belowShouldBeNull: number = rectBoard.getIndexBelow(17)
+        const belowIndex: number = rectBoard.getIndexBelow(13)
+
+        expect(belowShouldBeNull).toBeNull()
+        expect(belowIndex).toEqual(17)
+    })
 })

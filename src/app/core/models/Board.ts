@@ -9,24 +9,14 @@ export class Board<T> {
         this.board = Array(width * height).fill(null)
     }
 
-    getBoardValueByCoordinates(xWidth: number, yHeight: number): T {
-        const index = this.getIndexFor(xWidth, yHeight)
-        return this.getBoardValueByIndex(index)
-    }
-
-    getBoardValueByIndex(index: number): T {
+    getBoardValue(index: number): T {
         if (index < 0 || index >= this.board.length) {
             return null
         }
         return this.board[index]
     }
 
-    pushItemToBoardByCoordinates(xWidth: number, yHeight: number, item: T) {
-        const index = this.getIndexFor(xWidth, yHeight)
-        this.pushItemToBoardByIndex(index, item)
-    }
-
-    pushItemToBoardByIndex(index: number, item: T) {
+    pushItemToBoard(index: number, item: T) {
         this.board[index] = item
     }
 
@@ -45,6 +35,31 @@ export class Board<T> {
 
     getIndexFor(xWidth: number, yHeight: number): number {
         return xWidth + (yHeight * this.width)
+    }
+
+    getIndexToRight(index: number): number {
+        return this.getAdjacentIndex(index, 1, (adjacent) => adjacent % this.width === 0)
+    }
+
+    getIndexToLeft(index: number): number {
+        return this.getAdjacentIndex(index, -1, (adjacent) => adjacent % this.width === this.width - 1)
+    }
+
+    getIndexAbove(index: number): number {
+        return this.getAdjacentIndex(index, -this.width)
+    }
+
+    getIndexBelow(index: number): number {
+        return this.getAdjacentIndex(index, this.width)
+    }
+
+    private getAdjacentIndex(index: number, adjacencyChange: number, isBoardEdge: (adjacentIndex: number) => boolean = () => false): number {
+        const adjacent: number = index + adjacencyChange
+        if (adjacent < 0 || adjacent >= this.board.length || isBoardEdge(adjacent)) {
+            return null
+        }
+
+        return adjacent
     }
 
 }
