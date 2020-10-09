@@ -1,10 +1,13 @@
 language: node_js
 node_js:
-  - "14.0"
+- '14.0'
 before_script:
-  - npm install -g @angular/cli
+- npm install -g @angular/cli
 script:
-  - npm install
-  - npm run build
-  - ng test
-  - ng e2e
+- npm install
+- npm run build
+- ng test
+deploy:
+  provider: heroku
+  api_key:
+    secure: b7jpfpHZax3zipnhbU4B7nWe1/2ZRmp5UpFpHnGUlr2DxjYMDHPG5IBChEQOLxmEEEZUbPcrNVSdHTagm2aB+yifkSZT1Jp7988dQixVypEeCdKxRQ5vn9wl/aPxuD7QTjm7GDOsDbsznZGE8GrvzpuRlwvdQoVVRtvZ1CzN05KtI0+KyHaGpREkNabJsDmj2PLMSGqNeMIZ5+ajYxQtacEwzA+fNkALKldGLW/QE8rCagH9FZzIZA/9ctyEi2xP7VxZad8zPyWfo+rLDsK3MC7favtEjFdpW9g0it3hjaqM44FQj0jBe0pheO99HTpbl7uEjeFL0dUGrSrRphiJv4goqKCKq4TTkQ7xfUJGWB/1VQZZAT3h4hNGqsOKr57WzB2huQxIUTh3ni+Af58prWjsoTYpSdzUJljyCFLdMYYnNDGMiuX2/PZS5LzKwGwSF+VXNMxq7EyEcEm21nAE5xlNL0ZhGz6SPbGX4cbpMF8R6laBtBKLh3fV67pnIVGlxdxLcDD/UTXTx610siEaTPBRh/BAK+Oywkl13dMOVaoDo7DQCvaWITNNRf1j4Jc7ZB9XxPDKOSiY7rpt6pehVz6e8Ob1hsBcv7VJVdTle6qfjnH96g8rZi6zNEXfUYK+qUgUcKL6BCqX5Q8AmVouD3d27t3/KF61YG5RztIYWMI=
