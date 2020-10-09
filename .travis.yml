@@ -18,7 +18,6 @@ before_script:
 script:
 - npm install
 - npm run build
-- ng test
 deploy:
   provider: heroku
   api_key:
