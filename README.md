@@ -1,6 +1,6 @@
 # Games
 [![Build Status](https://travis-ci.org/jwhalen93/games.svg?branch=main)](https://travis-ci.org/jwhalen93/games)
-[![Heroku](https://heroku-badge.herokuapp.com/?app=gamesboy)
+![Heroku](https://heroku-badge.herokuapp.com/?app=gamesboy)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.4.
 
