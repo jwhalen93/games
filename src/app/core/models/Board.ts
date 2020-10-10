@@ -1,7 +1,9 @@
-export class Board<T> {
+import { Piece } from 'src/app/core/models/Piece'
+
+export class Board {
     readonly width: number
     readonly height: number
-    readonly board: Array<T>
+    readonly board: Array<Piece>
 
     constructor(width: number, height: number) {
         this.width = width
@@ -9,19 +11,23 @@ export class Board<T> {
         this.board = Array(width * height).fill(null)
     }
 
-    getBoardValue(index: number): T {
+    getBoardPiece(index: number): Piece {
         if (index < 0 || index >= this.board.length) {
             return null
         }
         return this.board[index]
     }
 
-    pushItemToBoard(index: number, item: T) {
+    hasPiece(index: number): boolean {
+        return this.board[index] != null
+    }
+
+    pushPieceToBoard(index: number, item: Piece) {
         this.board[index] = item
     }
 
-    populateBoard(populate: (xWidth: number, yHeight: number) => T) {
-        this.board.map((value: T, index: number) => {
+    populateBoardWithPieces(populate: (xWidth: number, yHeight: number) => Piece) {
+        this.board.map((value: Piece, index: number) => {
             const [x, y] = this.getDimensionsFor(index)
             return populate(x, y)
         })

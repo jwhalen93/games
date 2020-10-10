@@ -1,8 +1,8 @@
 import { Board } from "src/app/core/models/Board"
 
 describe('Board', () => {
-    const squareBoard: Board<string> = new Board(3, 3)
-    const rectBoard: Board<string> = new Board(4, 5)
+    const squareBoard: Board = new Board(3, 3)
+    const rectBoard: Board = new Board(4, 5)
 
     it('verify index parsing on square', () => {
         const [x, y] = squareBoard.getDimensionsFor(5)
