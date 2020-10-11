@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from 'src/app/modules/components/app.component';
 import { SquareComponent } from 'src/app/modules/components/square/square.component';
 import { BoardComponent } from 'src/app/modules/components/board/board.component';
+import { BoardNewComponent } from './components/board-new/board-new.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SquareComponent,
-    BoardComponent
+    BoardComponent,
+    BoardNewComponent
   ],
   imports: [
     BrowserModule,

@@ -5,6 +5,5 @@ main {
 }
 
 app-square {
-    border: 2px gray solid;
     height: 100px;
 }
