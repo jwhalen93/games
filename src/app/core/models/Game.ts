@@ -2,6 +2,7 @@ import { Board } from 'src/app/core/models/Board';
 import { GameStatusEnum } from 'src/app/core/models/GameStatusEnum';
 import { Piece } from 'src/app/core/models/Piece';
 import { Player } from 'src/app/core/models/Player';
+import { Rule } from 'src/app/core/models/Rule';
 
 export class Game {
     readonly name: string
@@ -10,6 +11,7 @@ export class Game {
     readonly pieces: Array<Piece>
     currentPlayerIndex: number
     gameStatus: GameStatusEnum
+    gameRules: Map<string, Rule>
 
     constructor(name: string, boardWidth: number, boardHeight: number) {
         this.name = name
@@ -51,5 +53,13 @@ export class Game {
     getTotalPlayers(): number {
         return this.players.length
     }
+
+    abstract setupGame()
+
+    abstract startGame()
+
+    abstract steupEndGame()
+
+    abstract updateGameStatus()
 
 }

@@ -18,6 +18,16 @@ export class Board {
         return this.board[index]
     }
 
+    getBoardColumnNumber(index: number): number {
+        const [width] = this.getDimensionsFor(index)
+        return width
+    }
+
+    getBoardRowNumber(index: number): number {
+        const [_, height] = this.getDimensionsFor(index)
+        return height
+    }
+
     hasPiece(index: number): boolean {
         return this.board[index] != null
     }
